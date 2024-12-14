@@ -151,7 +151,7 @@ end
 %------------------------------histogram equalization-------------------
 
 function pushbutton7_Callback(hObject, eventdata, handles)
-global j;
+global i;
 k = j;
 % k(:,:,1) = histeq(i(:,:,1));
 % k(:,:,2) = histeq(i(:,:,2));
@@ -188,9 +188,9 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 global j
 lowIn = str2double(get(handles.edit1, 'String'))/255;
 highIn = str2double(get(handles.edit2, 'String'))/255;
-jimadjust = imadjust(j, [lowIn highIn], []);
+k = imadjust(j, [lowIn highIn], []);
 axes(handles.axes12);
-imshow(jimadjust);
+imshow(k);
 
 %-------------------------gray histogram-------------------
 % --- Executes on button press in pushbutton11.
