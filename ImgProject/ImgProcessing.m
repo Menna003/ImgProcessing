@@ -22,7 +22,7 @@ function varargout = ImgProcessing(varargin)
 
 % Edit the above text to modify the response to help ImgProcessing
 
-% Last Modified by GUIDE v2.5 14-Dec-2024 19:45:45
+% Last Modified by GUIDE v2.5 15-Dec-2024 00:05:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -127,7 +127,115 @@ elseif handles.popupmenu4.Value==2
 elseif handles.popupmenu4.Value==3
         a=edge(j,'roberts');  
 elseif handles.popupmenu4.Value==4
-        a=edge(j,'canny');    
+        a=
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        );    
 elseif handles.popupmenu4.Value==5
         a=edge(j,'log'); 
 elseif handles.popupmenu4.Value==6
@@ -153,6 +261,7 @@ end
 function pushbutton7_Callback(hObject, eventdata, handles)
 global j;
 k = j;
+% RGB Equlization
 % k(:,:,1) = histeq(i(:,:,1));
 % k(:,:,2) = histeq(i(:,:,2));
 % k(:,:,3) = histeq(i(:,:,3));
@@ -179,6 +288,18 @@ figure
 plot(blue_histo, 'blue');
 
 
+%-------------------------histogram before-------------------
+% --- Executes on button press in pushbutton11.
+function pushbutton11_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global j
+figure
+% axes(handles.axes12);
+imhist(j);
+
+
 %----------------------contrast stretching------------------
 % --- Executes on button press in pushbutton8.
 % hObject    handle to pushbutton8 (see GCBO)
@@ -186,21 +307,24 @@ plot(blue_histo, 'blue');
 % handles    structure with handles and user data (see GUIDATA)
 function pushbutton8_Callback(hObject, eventdata, handles)
 global j
+global jimadjust
 lowIn = str2double(get(handles.edit1, 'String'))/255;
 highIn = str2double(get(handles.edit2, 'String'))/255;
 jimadjust = imadjust(j, [lowIn highIn], []);
 axes(handles.axes12);
 imshow(jimadjust);
 
-%-------------------------gray histogram-------------------
-% --- Executes on button press in pushbutton11.
-function pushbutton11_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton11 (see GCBO)
+
+%--------------------------Histogram After----------------------
+% --- Executes on button press in pushbutton12.
+function pushbutton12_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton12 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global j
-axes(handles.axes12);
-imhist(j);
+global jimadjust
+figure
+% axes(handles.axes12);
+imhist(jimadjust);
 
 function edit1_Callback(hObject, eventdata, handles)
 % hObject    handle to edit1 (see GCBO)
@@ -247,7 +371,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
 %---------------------Image Negative--------------------
 % --- Executes on button press in pushbutton10.
 function pushbutton10_Callback(hObject, eventdata, handles)
@@ -260,8 +383,3 @@ negScale = 1 / max(neg(:));
 neg = 1 - neg * negScale;
 axes(handles.axes13);
 imshow(neg);
-
-
-
-
-
